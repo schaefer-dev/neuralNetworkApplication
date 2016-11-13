@@ -40,10 +40,10 @@
 \rhead{Daniel Schäfer (2549458)\\ Christian Bohnenberger (?????) \\ Dominik Weber (???????)}
 \renewcommand{\headrulewidth}{1.2pt}
 
+\setlength{\headheight}{45pt} 
+
 \begin{document}
 \pagenumbering{gobble}
-
-\vspace*{0\baselineskip}
 
 \section*{1 Linear Algebra}
 
@@ -51,7 +51,33 @@
 \section*{2 Probability Theory}
 \begin{enumerate}[1)]
     \item 
-        this is first solution
+        % TODO
+        Bohne insert his solution here
+        
+    \item
+        $$ P(\text{Macintosh}) = 30\% $$
+        $$ P(\text{Windows})= 50\% $$
+        $$ P(\text{Linux})= 20\% $$
+
+        $$ P( \text{Virus } \vert \text{ Macintosh}) = 65\% $$
+        $$ P( \text{Virus } \vert \text{ Windows}) = 82\% $$
+        $$ P( \text{Virus } \vert \text{ Linux}) = 50\% $$
+
+        and we are looking for $P(\text{Windows } \vert \text{ Virus}) = \text{?}$
+
+        $$ P( \text{Virus}) = P( \text{Virus } \vert \text{ Macintosh}) * P( \text{Macintosh}) $$
+        $$+ P( \text{Virus } \vert \text{ Windows}) * P( \text{Windows}) $$
+        $$+ P( \text{Virus } \vert \text{ Linux}) * P( \text{Linux}) $$
+        $$ = 0,65*0,3 + 0,82*0,5 + 0,5 * 0,2 = \underline{0,705} $$
+
+        $$ P(A \vert B) = \frac{P(B \vert A) * P(A)}{P(B)} $$
+
+        $$ P( \text{Virus } \vert \text{ Windows}) = \frac{ P( \text{Windows } \vert \text{ Virus}) * P( \text{Virus})}{P( \text{Windows})} $$
+        $$ 0,82 = \frac{ P( \text{Windows } \vert \text{ Virus}) * 0,705}{0,5}$$
+        $$ P( \text{Windows } \vert \text{ Virus}) = 0,581560284 $$
+
+        
+                
 \end{enumerate}
 
 
