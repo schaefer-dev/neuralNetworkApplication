@@ -91,11 +91,12 @@
         $$ = \sum_x  x * P(X=x) * \sum_y y * P(Y=y)$$
         $$ = E(X) * E(Y)$$
 
-        % TODO
+        % TODO sehr unsicher
         \textbf{Covariance:}\\
         $$ cov(X,Y) = E[(X - E[X]) * (Y - E[Y])] $$
-        wikipedia proof maybe?
-        $$ \text{?????????} $$
+        $$ = E[XY - X E[Y] - E[X]*Y + E[X]E[Y]]$$
+        $$ = E[XY] - E[X]E[Y] - E[X]E[Y] + E[X]E[Y]$$
+        $$ = E[XY] - E[X]E[Y] = 0$$
 
                 
 \end{enumerate}
