@@ -108,12 +108,30 @@
         $$ P( \text{Windows } \vert \text{ Virus}) = 0,581560284 $$
 
     \item
-        % TODO
-        no idea what probability density functions are
-        Integral from $- \infty$ to $\infty$ has to be 1 and additionally every value has to be $\geq 0$, check both or f and g.
+        If $f$ and $g$ are PDFs the following conditions have to hold:
+        \begin{itemize}
+            \item 
+                the integral from $-\infty$ to $\infty$ has to be 1
+            \item
+                every value $f(x)$ / $g(x)$ has to be $\geq 0$
+        \end{itemize}
+
+        we check these conditions for $f$ and $g$:
+        \begin{itemize}
+            \item 
+                For $f$ we compute $\int_{-\infty}^{\infty} f(x) = \int_{0}^{\infty} \frac{1}{1+x} + 0$. This inegral does not converge so $f(x)$ can not be a PDF!
+            \item
+                For $g$ we compute $\int_{-\infty}^{\infty} g(x) = \int_{0}^{\infty} \frac{1}{(1+x)^2} + 0$. This integral is $ = 1$ and thus $g$ fullfills the first condition.
+
+                The second condition also holds, because $0 \geq 0$ and $\forall x \quad \frac{1}{(1+x)^2} \geq 0$
+
+                $\Rightarrow$ $g(x)$ is a valid probability density function!
+
+        \end{itemize}
+
 
         % TODO
-        also compute mean
+        \textbf{TODO also compute mean}
 
     \item
         % TODO
@@ -126,7 +144,7 @@
         $$ = \sum_x  x * P(X=x) * \sum_y y * P(Y=y)$$
         $$ = E(X) * E(Y)$$
 
-        % TODO sehr unsicher
+        % TODO unsicher
         \textbf{Covariance:}\\
         $$ cov(X,Y) = E[(X - E[X]) * (Y - E[Y])] $$
         $$ = E[XY - X E[Y] - E[X]*Y + E[X]E[Y]]$$
