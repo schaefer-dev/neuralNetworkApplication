@@ -60,10 +60,22 @@
         \begin{enumerate}[(i)]
             \item 
                 % TODO
-                TODO aufschreiben (Bohne)
+                $$det\begin{bmatrix}2&-1&-1\\-1&3&-1\\-1&-1&x\end{bmatrix}=$$\\
+                $2*3*x+(-1)*(-1)*(-1)+(-1)*(-1)*(-1)-(-1)*(3)*(-1)-2*(-1)*(-1)-(-1)*(-1)*x = 5x-7 $\\
+                $\Rightarrow 5x-7 > 0 \rightarrow x> \frac{7}{5}$\\
+                For every value $ x \geq \frac{7}{5}$ the matrix is positive definite because the det. is greater than 0. E.g., $x=2$ is a possible value to get a positive definite matrix.
             \item
                 % TODO
-                check for rank online, if its still rank-3 prove why it can't be rank2
+               	 $$\begin{bmatrix}2&-1\\-1&3\end{bmatrix}* \begin{bmatrix} u \\v \end{bmatrix} = \begin{bmatrix} -1 \\-1 \end{bmatrix}$$\\
+               	 \begin{enumerate}
+               	 	\item[I] $2u-v=-1 \rightarrow v=2u+1$
+               	 	\item[II] $-u+3v= -1 $
+               	 \end{enumerate}
+               	 $v=2u+1$ in $II$:\\
+               	 $-u+3*(2u+1)=-1 \rightarrow u=-\frac{4}{5}$\\
+               	 $\rightarrow v=-\frac{3}{5}$\\
+               	 $x=-1*(-\frac{4}{5})+(-1)*(-\frac{3}{5}) = \frac{7}{5}$\\
+               	 That means if we set $x=\frac{7}{5}$ and we add the first row of the matrix times $-\frac{4}{5}$ and the second row times $-\frac{3}{5}$ we last will be (0,0,0).
         \end{enumerate}
 
     \item
