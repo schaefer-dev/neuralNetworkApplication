@@ -47,10 +47,9 @@
 
 \section*{1 Linear Algebra}
 \begin{enumerate}[1)]
-    \item 
-        % TODO
-        no Idea
-        
+    \item
+        M symetrie $\Rightarrow M=VDV^{-1}$,the decomposition with V orthogonal.\\
+        $$\frac{x^TMx}{\Vert x_2^2\Vert}=\frac{<x,Mx>}{\Vert x\Vert_2^2}=\frac{<x,VDV^{-1}x>}{\Vert x\Vert_2^2}=\frac{<x,VDV^Tx>}{\Vert x\Vert_2^2}=\frac{<V^Tx,DV^Tx>}{\Vert x\Vert_2^2}=$$$$\ldots \text{substidute y}:=V^Tx\ldots=\frac{<y,Dy>}{\Vert Vy\Vert_2^2}=\frac{<y,Dy>}{<Vy,Vy>}=\frac{<y,Dy>}{<y,V^TVy>}=$$$$\frac{<y,Dy>}{<y,y>}=\frac{\sum_{i=1}^{n}\lambda_iy_i^2}{\Vert y\Vert_2^2}=*$$\\$$\frac{\lambda_{min}\sum_{i=1}^{n}y_i^2}{\Vert y\Vert_2^2}\leq * \leq \frac{\lambda_{max}\sum_{i=1}^{n}y_i^2}{\Vert y\Vert_2^2}\Rightarrow \lambda_{min}\frac{\Vert y \Vert_2^2}{\Vert y\Vert_2^2}\leq * \leq \lambda_{max}\frac{\Vert y \Vert_2^2}{\Vert y\Vert_2^2} \Rightarrow \lambda_{min} \leq * \leq \lambda_{max}$$
     \item
         a real symmetric matrix A can be decomposed as: $A=QEQ^T$ ,where Q is an orthogonal matrix and E is a diagonal matrix whose entries are the eigenvalues of A.\\
     $\Rightarrow A^{100}=(QEQ^T)^{100}$\\
