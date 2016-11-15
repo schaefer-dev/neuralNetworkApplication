@@ -186,12 +186,48 @@
 
 \newpage
 \section*{3 Multivariable Calculus}
-
-\begin{itemize}
-    \item 
+ 
         % TODO
-        aufschreiben Bohne
-\end{itemize}
+        $$ \nabla f = \begin{bmatrix}3x^2-3y^2\\-6xy\end{bmatrix} $$
+        $$ Hess f(x) = \begin{bmatrix} 6x & -6y \\ -6y & -6x \end{bmatrix} $$
+        
+        $$ \nabla f = 0 $$
+         
+        \begin{enumerate}
+         	\item[I:] $ 3x^2-3y^2=0 \Leftrightarrow x^2-y^2=0 \Leftrightarrow x^2=y^2 \Leftrightarrow x=y \vee x=-y $
+         	\item[II:] $ -6xy=0 \Leftrightarrow x*y=0 $
+        \end{enumerate}
+        
+        $x=y$ in II:\\
+        $$ y*y = 0 \Rightarrow y = 0 \rightarrow x = 0 $$
+        
+		$x=-y$ in II:\\
+        $$ (-y)*y = 0 \Rightarrow y = 0 \rightarrow x = 0 $$
+        
+        possible extermal points: (0,0)\\
+        
+        $$ Hess f(0,0) = \begin{bmatrix} 0 & 0 \\ 0 & 0 \end{bmatrix} $$
+        
+        $$ det (Hess f(0,0)) = 0 $$
+        
+        Eigenvalues of Hess f(0,0): $\lambda_0=0$ and $\lambda_1=0$\\
+        
+        Both Eigenvalues are 0, i.e., the matrix is positive semi-definite and negative semi-definite. \\
+        
+        $\Rightarrow$ There is a direction whose eigenvalue is positive and another direction whose Eigenvalue is negative $\Rightarrow$ graph has a saddle at (0,0)\\
+        
+        Since there is no local max. or min. we do not have to check if there is a local point which is also a global min. or max.\\
+        
+        Maximum and Minimum value:\\
+        
+        $$ lim_{(x,y)\rightarrow (\infty,0)}f(x)= \infty $$
+        
+        $$ lim_{(x,y)\rightarrow (-\infty,0)}f(x)= -\infty $$
+        
+        The function has min. value: $-\infty$ and max. value: $\infty$ (which are also global min./max.)
+        
+        
+        
 
 
 
