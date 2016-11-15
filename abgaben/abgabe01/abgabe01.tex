@@ -133,7 +133,7 @@
 
         $$ P( \text{Virus } \vert \text{ Windows}) = \frac{ P( \text{Windows } \vert \text{ Virus}) * P( \text{Virus})}{P( \text{Windows})} $$
         $$ 0,82 = \frac{ P( \text{Windows } \vert \text{ Virus}) * 0,705}{0,5}$$
-        $$ P( \text{Windows } \vert \text{ Virus}) = 0,581560284 $$
+        $$ P( \text{Windows } \vert \text{ Virus}) = \underline{0,581560284} $$
 
     \item
         If $f$ and $g$ are PDFs the following conditions have to hold:
@@ -147,19 +147,20 @@
         we check these conditions for $f$ and $g$:
         \begin{itemize}
             \item 
-                For $f$ we compute $\int_{-\infty}^{\infty} f(x) = \int_{0}^{\infty} \frac{1}{1+x} + 0$. This inegral does not converge so $f(x)$ can not be a PDF!
+                For $f$ we compute $\int_{-\infty}^{\infty} f(x) = \int_{0}^{\infty} \frac{1}{1+x} (+0)$. This inegral does not converge so $f(x)$ can not be a PDF!
             \item
-                For $g$ we compute $\int_{-\infty}^{\infty} g(x) = \int_{0}^{\infty} \frac{1}{(1+x)^2} + 0$. This integral is $ = 1$ and thus $g$ fullfills the first condition.
+                For $g$ we compute $\int_{-\infty}^{\infty} g(x) = \int_{0}^{\infty} \frac{1}{(1+x)^2} (+0)$. This integral is $ = 1$ and thus $g$ fullfills the first condition.
 
                 The second condition also holds, because $0 \geq 0$ and $\forall x \quad \frac{1}{(1+x)^2} \geq 0$
 
-                $\Rightarrow$ $g(x)$ is a valid probability density function!
+                \underline{$\Rightarrow$ $g(x)$ is a valid probability density function!}
 
         \end{itemize}
 
 
         % TODO
-        \textbf{TODO also compute mean}
+        \textbf{the mean of $g$:}
+        $$\text{mean } = E(X) = \int_0^{\infty} x g(x) dx = \underline{ 0 }$$ 
 
     \item
         % TODO
