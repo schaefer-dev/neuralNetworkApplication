@@ -81,11 +81,17 @@
     \item 
         see File
     \item
-        % TODO
+        % TODO keine Ahnung was man hier gross schreiben soll
         TODO: Justify your answer and explain why the path looks like that.
     \item
         % TODO
-        TODO: Briefy describe and explain your observations.
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=300pt]{pictures/figure_1.png}
+            \caption{gradient Descent with $\epsilon = 0.1$}
+            \label{fig:fig1}
+        \end{figure}
+        as you can see in Figure \ref{fig:fig1} this is a very interesting special case because with this $\epsilon$ the gradient descent alternates between the ''sides'' (in respect to X) of our surface. This is caused by the derivative which is alternating between the same value positive and negative for the descent in direction X. So we are esentially endlessly looping in X-direction without any progress while only ``progressing'' in Y-direction. For every starting point there is exactly a \underline{single value} of $\epsilon$ which results in this behaviour. This result is caused by the symetry of our surface!
 \end{enumerate}
 
 
