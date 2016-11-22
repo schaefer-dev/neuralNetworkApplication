@@ -52,7 +52,22 @@
 \begin{enumerate}[a)]
     \item 
         % TODO
-        TODO
+        $$X =\begin{bmatrix} 1&1 \\ 2&2 \\ 3 & 1 \\ 4 & 1 \end{bmatrix}$$\\
+        $X$ with mean $0$:\\
+        $$X =\begin{bmatrix} -\frac{3}{2}& -\frac{1}{4} \\ -\frac{1}{2}&\frac{3}{4} \\ \frac{1}{2} & -\frac{1}{4} \\ \frac{3}{2} & -\frac{1}{4} \end{bmatrix}$$\\
+        We continue with the matrix with mean zero.\\
+        $$X^T * X = \begin{bmatrix} -\frac{3}{2}& -\frac{1}{2} & \frac{1}{2} & \frac{3}{2} \\
+        				-\frac{1}{4} & \frac{3}{4} & -\frac{1}{4}  & -\frac{1}{4} \end{bmatrix} *
+        				\begin{bmatrix} -\frac{3}{2}& -\frac{1}{4} \\ -\frac{1}{2}&\frac{3}{4} \\ \frac{1}{2} & -\frac{1}{4} \\ \frac{3}{2} & -\frac{1}{4} \end{bmatrix} 
+        				= \begin{bmatrix}
+        					5 & -0.5 \\
+        					-0.5 & 3
+        				\end{bmatrix}
+        				$$\\
+        	Now we can compute the eigenvalues:
+        		$$ (5 - \lambda)*(3 - \lambda)-0.25 =0$$
+        		$$ 15 - 8\lambda + \lambda^2 -0.25 = 0$$
+        		
     \item
         % TODO
         TODO
