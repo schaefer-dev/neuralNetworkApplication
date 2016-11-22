@@ -67,12 +67,12 @@
 \begin{enumerate}[a)]
     \item 
         % TODO
-        TODO explain the shifting of values here:\\\\
-        As explained in the book:\\
+        As explained in the deeplearning book:\\
         Both of these difficulties can be resolved by instead evaluating $\text{softmax}(z)$ where $z = x - \text{max}_i x_i$. Simple algebra shows that the value of the softmax function is not changed analytically by adding or subtracting a scalar from the input vector. Subtracting $\text{max}_i x_i$ results in the largest argument to exp being 0, which rules out the possibility of overflow. Likewise, at least one term in the denominator has a value of 1, which rules out the possibility of underflow in the denominator leading to a division by zero.
     \item
         % TODO
-        TODO: State where we might still might encounter problems and give an example which makes softmax useless even when using the pro- posed scheme.
+        As explained in the deeplearning book:\\
+        Underflow in the numerator can still cause the expression as a whole to evaluate to zero. This means that if we implement log softmax(x) by first running the softmax subroutine then passing the result to the log function, we could erroneously obtain $-\infty$.
 \end{enumerate}
 
 
