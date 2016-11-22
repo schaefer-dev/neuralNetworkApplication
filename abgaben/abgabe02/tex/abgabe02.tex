@@ -76,6 +76,7 @@
         		$$ D= \begin{bmatrix} 4.23606 \\ 1 \end{bmatrix} $$\\
         		Encoder: $f(x)= D^T * x$\\
         		Decoder: $g(x)= D* D^T *x$\\
+        		Encoding:\\
         		\begin{itemize}
         			\item $f(x^{(1)})= \begin{bmatrix} 4.23606, & 1 \end{bmatrix} * \begin{bmatrix} 1 \\ 1 \end{bmatrix} = 5.23606$
         			\item $f(x^{(2)})= \begin{bmatrix} 4.23606, & 1 \end{bmatrix} * \begin{bmatrix} 2 \\ 2 \end{bmatrix} = 10.47212$
@@ -105,15 +106,23 @@
         		$$ \begin{bmatrix} 0.75-5.05803 & 0.5 \\ 0.5 & 5-5.05803 \end{bmatrix}* \begin{bmatrix} x_1 \\ x_2 \end{bmatrix}
         		=\begin{bmatrix} 0 \\ 0 \end{bmatrix} $$\\
         		$$ \Rightarrow \frac{1}{2}*x_1 - 0.05803*x_2= 0 $$\\ 
-        		$$ \Rightarrow  \text{eigenvector:}  \begin{bmatrix} 0.115288 \\ 0.99332 \end{bmatrix} $$\\
-        		$$ D= \begin{bmatrix} 0.115288 \\ 0.99332 \end{bmatrix} $$\\
+        		$$ \Rightarrow  \text{eigenvector:}  \begin{bmatrix} 1 \\ 8.61623 \end{bmatrix} $$\\
+        		$$ D= \begin{bmatrix} 1 \\ 8.61623 \end{bmatrix} $$\\
         		Encoder: $f(x)= D^T * x$\\
         		Decoder: $g(x)= D* D^T *x$\\
+        		Encoding:\\
         		\begin{itemize}
-        			\item $f(x^{(1)})= \begin{bmatrix} 0.115288 \\ 0.99332 \end{bmatrix} * \begin{bmatrix} 1 \\ 1 \end{bmatrix} = 0.878032$
-        			\item $f(x^{(2)})= \begin{bmatrix} 0.115288 \\ 0.99332 \end{bmatrix} * \begin{bmatrix} 2 \\ 2 \end{bmatrix} = 1.756064$
-        			\item $f(x^{(3)})= \begin{bmatrix} 0.115288 \\ 0.99332 \end{bmatrix} * \begin{bmatrix} 3 \\ 1 \end{bmatrix} = 0.647456$
-        			\item $f(x^{(4)})= \begin{bmatrix} 0.115288 \\ 0.99332 \end{bmatrix} * \begin{bmatrix} 4 \\ 1 \end{bmatrix} = 0.532168$
+        			\item $f(x^{(1)})= \begin{bmatrix} 1 & 8.61623  \end{bmatrix} * \begin{bmatrix} -1 \\ 1 \end{bmatrix} = 7.61623$
+        			\item $f(x^{(2)})= \begin{bmatrix} 1 & 8.61623  \end{bmatrix} * \begin{bmatrix} -2 \\ 2 \end{bmatrix} = 15.23246$
+        			\item $f(x^{(3)})= \begin{bmatrix} 1 & 8.61623  \end{bmatrix} * \begin{bmatrix} -1 \\ 3 \end{bmatrix} = 24,84869$
+        			\item $f(x^{(4)})= \begin{bmatrix} 1 & 8.61623  \end{bmatrix} * \begin{bmatrix} -1 \\ 4 \end{bmatrix} = 33.46492$
+        		\end{itemize}
+        		Decoding:$D*D^T*x$ ($D^T*x$ is already computed)\\
+        		\begin{itemize}
+        			\item $\begin{bmatrix} 1 \\ 8.61623  \end{bmatrix}*7.61623= \begin{bmatrix} 7.61623 \\ 65.6231  \end{bmatrix}$
+        			\item $\begin{bmatrix} 1 \\ 8.61623  \end{bmatrix}*15.23246= \begin{bmatrix} 15.23246 \\ 131.2463788  \end{bmatrix}$ 
+        			\item $\begin{bmatrix} 1 \\ 8.61623  \end{bmatrix}*24,84869= \begin{bmatrix} 24,84869 \\ 214.1020282  \end{bmatrix}$ 
+        			\item $\begin{bmatrix} 1 \\ 8.61623  \end{bmatrix}*33.46492= \begin{bmatrix} 33.46492 \\ 288,3414477  \end{bmatrix}$  
         		\end{itemize}
     \item
         % TODO
