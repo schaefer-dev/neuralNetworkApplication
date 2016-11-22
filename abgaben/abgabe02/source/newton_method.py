@@ -20,7 +20,7 @@ def hfi(x):
 x = matrix([[-2], [4]])
 
 # Learning rate
-epsilon = 0.5
+epsilon = 1
 
 for i in range(0, 30):
     print(x, f(x))
