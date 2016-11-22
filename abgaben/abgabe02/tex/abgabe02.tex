@@ -141,7 +141,42 @@
         see File
     \item
         % TODO keine Ahnung was man hier gross schreiben soll
-        TODO: Justify your answer and explain why the path looks like that.
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=300pt]{pictures/figure_2.png}
+            \caption{function surface perspektive 1}
+            \label{fig:fig2}
+        \end{figure}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=300pt]{pictures/figure_3.png}
+            \caption{function surface perspektive 2}
+            \label{fig:fig3}
+        \end{figure}
+        as you can see in Figure \ref{fig:fig2} and \ref{fig:fig3} our Function has the look of an sloap.\\
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=300pt]{pictures/figure_4.png}
+            \caption{gradient descent steps, perspektive 1}
+            \label{fig:fig4}
+        \end{figure}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=300pt]{pictures/figure_5.png}
+            \caption{gradient descent steps, perspektive 2}
+            \label{fig:fig5}
+        \end{figure}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=300pt]{pictures/figure_6.png}
+            \caption{gradient descent direction}
+            \label{fig:fig6}
+        \end{figure}
+        If we now take a look at the steps of the gradient descent, displayed in Figure \ref{fig:fig4} and \ref{fig:fig5} we can see that we are starting at point $(-2 \vert 4 \vert 84)$. the next descent goes down to $(-0.4 \vert 3.9 \vert 7)$ as shown in \ref{fig:fig6}. 
+        
+        The descent continues down the slope with decreasing $X$ values fairly quickly towards zero. The same happens for the Y Coordinates but less quickly. 
+        
+        This is caused by the way the function is being setup. The derivative in $X$ direction is growing much quicker (distancing from $0$) compared to the derivative in $Y$ direction. Thats why we are approaching $X = 0$ much much quicker than we are $Y = 0$. The value for $z$ changes accordingly and also tends towards $0$ just as expected. 
     \item
         % TODO
         \begin{figure}[H]
@@ -150,7 +185,7 @@
             \caption{gradient Descent with $\epsilon = 0.1$}
             \label{fig:fig1}
         \end{figure}
-        as you can see in Figure \ref{fig:fig1} this is a very interesting special case because with this $\epsilon$ the gradient descent alternates between the ''sides'' (in respect to X) of our surface. This is caused by the derivative which is alternating between the same value positive and negative for the descent in direction X. So we are esentially endlessly looping in X-direction without any progress while only ``progressing'' in Y-direction. For every starting point there is exactly a \underline{single value} of $\epsilon$ which results in this behaviour. This result is caused by the symetry of our surface!
+        as you can see in Figure \ref{fig:fig1} down below this is a very interesting special case because with this $\epsilon$ the gradient descent alternates between the ''sides'' (in respect to X) of our surface. This is caused by the derivative which is alternating between the same value positive and negative for the descent in direction X. So we are esentially endlessly looping in X-direction without any progress while only ``progressing'' in Y-direction. For every starting point there is exactly a \underline{single value} of $\epsilon$ which results in this behaviour. This result is caused by the symetry of our surface!
 \end{enumerate}
 
 
