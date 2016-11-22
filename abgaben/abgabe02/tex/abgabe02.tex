@@ -64,10 +64,24 @@
         					-0.5 & 3
         				\end{bmatrix}
         				$$\\
-        	Now we can compute the eigenvalues:
-        		$$ (5 - \lambda)*(3 - \lambda)-0.25 =0$$
-        		$$ 15 - 8\lambda + \lambda^2 -0.25 = 0$$
+        	Now we can compute the eigenvalues:\\
+        		$$ (5 - \lambda)*(3 - \lambda)-0.25 =0$$\\
+        		$$ 15 - 8\lambda + \lambda^2 -0.25 = 0$$\\
+        		$$ \Rightarrow \lambda_1= 2.88197, \lambda_2=5.11803 $$\\
         		
+        		$$ \begin{bmatrix} 5-5.11803 & -0.5 \\ -0.5 & 3-5.11803 \end{bmatrix}* \begin{bmatrix} x_1 \\ x_2 \end{bmatrix}
+        		=\begin{bmatrix} 0 \\ 0 \end{bmatrix} $$\\
+        		$$ \Rightarrow -\frac{1}{2}*x_1 - 2.11803*x_2= 0 $$\\ 
+        		$$ \Rightarrow  \text{eigenvector:}  \begin{bmatrix} 4.23606 \\ 1 \end{bmatrix} $$\\
+        		$$ D= \begin{bmatrix} 4.23606 \\ 1 \end{bmatrix} $$\\
+        		Encoder: $f(x)= D^T * x$\\
+        		Decoder: $g(x)= D* D^T *x$\\
+        		\begin{itemize}
+        			\item $f(x^{(1)})= \begin{bmatrix} 4.23606, & 1 \end{bmatrix} * \begin{bmatrix} 1 \\ 1 \end{bmatrix} = 5.23606$
+        			\item $f(x^{(2)})= \begin{bmatrix} 4.23606, & 1 \end{bmatrix} * \begin{bmatrix} 2 \\ 2 \end{bmatrix} = 10.47212$
+        			\item $f(x^{(3)})= \begin{bmatrix} 4.23606, & 1 \end{bmatrix} * \begin{bmatrix} 3 \\ 1 \end{bmatrix} = 13.70818$
+        			\item $f(x^{(4)})= \begin{bmatrix} 4.23606, & 1 \end{bmatrix} * \begin{bmatrix} 4 \\ 1 \end{bmatrix} = 17.94424$
+        		\end{itemize}
     \item
         % TODO
         TODO
