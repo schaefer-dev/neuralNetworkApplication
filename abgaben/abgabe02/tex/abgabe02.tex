@@ -136,7 +136,14 @@
 
 \subsection{Numerical Computation 4}
 % TODO
-TODO: Design a meaningful stopping criterion for stopping the iterations from exercise 3 or 4.
+stop descent if one of these conditions hold:
+\begin{itemize}
+    \item 
+        the derivative of f in this point is smaller than a chosen constant 0.0001 for 3 iterations in a row.
+    \item
+        we also stop in a special case just like in 2.3c by checking if we start alternating between 2 points. We could do this for example by storing the last 4 values for the derivative and checking if 
+        $$ \text{dx}_0 - \text{dx}_2 \leq 0.0001 \quad \land \quad \text{dx}_1 - \text{dx}_3 \leq 0.0001 $$
+\end{itemize}
 
 
 \end{document}
