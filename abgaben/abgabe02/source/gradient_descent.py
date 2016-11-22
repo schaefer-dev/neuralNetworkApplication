@@ -54,9 +54,13 @@ ax.set_zlabel('Z Label')
 
 
 for i in range(0, 1000):
-    print("X = " + str(x.item(0)))
-    print("Y = " + str(x.item(1)))
-    print ("f(x,y) = " + str(f(x)))
+    coordX = x.item(0)
+    coordY = x.item(1)
+    fxy = f(x)
+    ax.scatter(coordX,coordY,fxy, c='yellow')
+    print("X = " + str(coordX))
+    print("Y = " + str(coordY))
+    print ("f(x,y) = " + str(fxy))
     print("---------------------------")
     # print(x, f(x))
     x = x - epsilon * fpx(x)
