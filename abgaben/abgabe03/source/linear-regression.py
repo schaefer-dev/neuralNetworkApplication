@@ -12,6 +12,7 @@ def init_weights(shape):
 def model(X, w):
     return tf.matmul(X, w) # notice we use the same model as linear regression, this is because there is a baked in cost function which performs softmax and cross entropy
 
+##### Ex1.1 ######
 reader = csv.reader(open("auto-mpg.data", "rt"))
 cars = [];
 for row in reader:
@@ -24,7 +25,16 @@ for car in cars:
 	X.append(float(car[0]))
 	Y.append(float(car[2]))
 
-trX, trY, teX, teY = X[0:49],Y[0:49],X[50:99],Y[50:99]
+trX, trY, teX, teY = X[0:50],Y[0:50],X[50:100],Y[50:100]
+
+print(trX)
+print(len(trX))
+print(trY)
+print(len(trY))
+print(teX)
+print(teY)
+
+##### End Ex1.1 ######
 
 
 X = tf.placeholder("float", [None, 784]) # create symbolic variables
@@ -39,10 +49,10 @@ train_op = tf.train.GradientDescentOptimizer(0.05).minimize(cost) # construct op
 predict_op = tf.argmax(py_x, 1) # at predict time, evaluate the argmax of the logistic regression
 
 # Launch the graph in a session
-with tf.Session() as sess:
+#with tf.Session() as sess:
     # you need to initialize all variables
-    tf.initialize_all_variables().run()
+#    tf.initialize_all_variables().run()
 
-    for i in range(100):
-        for start, end in zip(range(0, len(trX), 128), range(128, len(trX)+1, 128)):
-            sess.run(train_op, feed_dict={X: trX[start:end], Y: trY[start:end]})
+ #   for i in range(100):
+  #      for start, end in zip(range(0, len(trX), 128), range(128, len(trX)+1, 128)):
+   #         sess.run(train_op, feed_dict={X: trX[start:end], Y: trY[start:end]})
