@@ -34,15 +34,7 @@ plt.xlabel('x-points')
 plt.ylabel('y-points')
 #plt.set_title('DataSet (a)')
 #plt.plot(x,y, 'bo')
-plt.savefig('train_distr.png')
-plt.close()
-
-plt.plot(teX, teY, 'ro')
-plt.xlabel('x-points')
-plt.ylabel('y-points')
-#plt.set_title('DataSet (a)')
-#plt.plot(x,y, 'bo')
-plt.savefig('text_distr.png')
+plt.show()
 plt.close()
 
 ##end plot ##
