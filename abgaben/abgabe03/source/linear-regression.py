@@ -5,6 +5,8 @@ import numpy as np
 import csv
 import matplotlib.pyplot as plt
 
+rng = np.random
+
 
 def init_weights(shape):
     return tf.Variable(tf.random_normal(shape, stddev=0.01))
@@ -42,7 +44,7 @@ plt.xlabel('x-points')
 plt.ylabel('y-points')
 #plt.set_title('DataSet (a)')
 #plt.plot(x,y, 'bo')
-plt.savefig('text_distr.png')
+plt.savefig('test_distr.png')
 plt.close()
 
 ##end plot ##
@@ -57,16 +59,62 @@ print(teY)
 ##### End Ex1.1 ######
 
 
-X = tf.placeholder("float", [None, 784]) # create symbolic variables
-Y = tf.placeholder("float", [None, 10])
+##### new code ######
 
-w = init_weights([784, 10]) # like in linear regression, we need a shared variable weight matrix for logistic regression
+# tf Graph Input
+X = tf.placeholder("float")
+Y = tf.placeholder("float")
 
-py_x = model(X, w)
+# Set model weights
+W = tf.Variable(rng.randn())
+b = tf.Variable(rng.randn())
 
-cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(py_x, Y)) # compute mean cross entropy (softmax is applied internally)
-train_op = tf.train.GradientDescentOptimizer(0.05).minimize(cost) # construct optimizer
-predict_op = tf.argmax(py_x, 1) # at predict time, evaluate the argmax of the logistic regression
+learning_rate = 0.01
+training_epochs = 3000
+display_step = 1
+
+# Construct a linear model
+pred = tf.add(tf.mul(X, W), b)
+
+# Mean squared error
+cost = tf.reduce_sum(tf.pow(pred-Y, 2))/(2*len(trX))
+# Gradient descent
+optimizer = tf.train.GradientDescentOptimizer(learning_rate).minimize(cost)
+
+# Initializing the variables
+init = tf.initialize_all_variables()
+
+# Launch the graph
+with tf.Session() as sess:
+    sess.run(init)
+
+    # Fit all training data
+    for epoch in range(training_epochs):
+        for (x, y) in zip(trX, trY):
+            sess.run(optimizer, feed_dict={X: x, Y: y})
+
+        # Display logs per epoch step
+        if (epoch+1) % display_step == 0:
+            c = sess.run(cost, feed_dict={X: trX, Y:trY})
+            print("Epoch:", '%04d' % (epoch+1), "loss=", "{:.9f}".format(c), \
+                "W=", sess.run(W), "b=", sess.run(b))
+
+    print("Optimization Finished!")
+    training_cost = sess.run(cost, feed_dict={X: trX, Y: trY})
+    print("Training cost=", training_cost, "W=", sess.run(W), "b=", sess.run(b), '\n')
+
+
+
+#X = tf.placeholder("float", [None, 784]) # create symbolic variables
+#Y = tf.placeholder("float", [None, 10])
+
+#w = init_weights([784, 10]) # like in linear regression, we need a shared variable weight matrix for logistic regression
+
+#py_x = model(X, w)
+
+#cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(py_x, Y)) # compute mean cross entropy (softmax is applied internally)
+#train_op = tf.train.GradientDescentOptimizer(0.05).minimize(cost) # construct optimizer
+#predict_op = tf.argmax(py_x, 1) # at predict time, evaluate the argmax of the logistic regression
 
 # Launch the graph in a session
 #with tf.Session() as sess:
