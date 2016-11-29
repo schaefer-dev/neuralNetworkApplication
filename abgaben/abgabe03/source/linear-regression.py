@@ -67,7 +67,7 @@ X = tf.placeholder("float")
 Y = tf.placeholder("float")
 
 
-learning_rate = 0.0001
+learning_rate = 0.00001
 training_epochs = 5000
 display_step = 1
 initW=-20.0
@@ -92,9 +92,10 @@ init = tf.initialize_all_variables()
 
 # Launch the graph
 costs=[]
+predictions=[]
 with tf.Session() as sess:
     sess.run(init)
-
+   
     # Fit all training data
     for epoch in range(training_epochs):
         for (x, y) in zip(trX, trY):
@@ -111,15 +112,26 @@ with tf.Session() as sess:
     training_cost = sess.run(cost, feed_dict={X: trX, Y: trY})
     print("Training cost=", training_cost, "W=", sess.run(W), "b=", sess.run(b), '\n')
 
+	# plot predicted training data
+    for (x, y) in zip(trX, trY):
+    	classification = sess.run(pred, feed_dict={X:x})
+	predictions.append(classification)
+
+    plt.plot(trX, predictions, 'ro')
+    plt.xlabel('x')
+    plt.ylabel('predicted value')
+    plt.savefig('costplots/onedimprediction.png')
+    plt.close();
+
 # plot costs for each epoch 
-epochlist=range(1,training_epochs+1)
-plt.plot(epochlist, costs, 'r')
-plt.xlabel('epoche')
-plt.ylabel('cost')
-plt.axis([1,training_epochs+1, 1500,3500])
+#epochlist=range(1,training_epochs+1)
+#plt.plot(epochlist, costs, 'r')
+#plt.xlabel('epoche')
+#plt.ylabel('cost')
+#plt.axis([1,training_epochs+1, 1500,3500])
 #plt.set_title('Epochs')
-plt.savefig('costplots/cost'+str(training_epochs)+'_w'+str(initW)+'_b'+str(initb)+'_learn'+str(learning_rate)+'.png')
-plt.close()
+#plt.savefig('costplots/cost'+str(training_epochs)+'_w'+str(initW)+'_b'+str(initb)+'_learn'+str(learning_rate)+'.png')
+#plt.close()
 
 
 #X = tf.placeholder("float", [None, 784]) # create symbolic variables
