@@ -31,30 +31,31 @@ for car in cars:
 trX, trY, teX, teY = X[0:50],Y[0:50],X[50:100],Y[50:100]
 
 ##plot##
-plt.plot(trX, trY, 'ro')
-plt.xlabel('x-points')
-plt.ylabel('y-points')
+#plt.plot(trX, trY, 'ro')
+#plt.xlabel('x-points')
+#plt.ylabel('y-points')
 #plt.set_title('DataSet (a)')
 #plt.plot(x,y, 'bo')
-plt.savefig('train_distr.png')
-plt.close()
+#plt.savefig('train_distr.png')
+#plt.close()
 
-plt.plot(teX, teY, 'ro')
-plt.xlabel('x-points')
-plt.ylabel('y-points')
+#plt.plot(teX, teY, 'ro')
+#plt.xlabel('x-points')
+#plt.ylabel('y-points')
 #plt.set_title('DataSet (a)')
 #plt.plot(x,y, 'bo')
-plt.savefig('test_distr.png')
-plt.close()
+#plt.savefig('test_distr.png')
+#plt.close()
 
 ##end plot ##
 
-print(trX)
-print(len(trX))
-print(trY)
-print(len(trY))
-print(teX)
-print(teY)
+#Debug
+#print(trX)
+#print(len(trX))
+#print(trY)
+#print(len(trY))
+#print(teX)
+#print(teY)
 
 ##### End Ex1.1 ######
 
@@ -66,8 +67,8 @@ X = tf.placeholder("float")
 Y = tf.placeholder("float")
 
 # Set model weights
-W = tf.Variable(rng.randn())
-b = tf.Variable(rng.randn())
+W = tf.Variable(tf.random_normal([1,1], stddev=0.01))
+b = tf.Variable(tf.random_normal([1,1], stddev=0.01))
 
 learning_rate = 0.01
 training_epochs = 3000
