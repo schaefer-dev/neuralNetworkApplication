@@ -53,20 +53,48 @@
 \begin{enumerate}[a)]
 
     \item 
-        % TODO
-        TODO insert Task a)
+        see File \textit{linear-regression.py} (marked in comments)
 
     \item 
-        % TODO
-        TODO insert Task b)
+        It is quite obvious that this output can be approximated by a function of degree one.\\
+        \begin{center}
+            \includegraphics[scale = 0.52]{pictures/train_distr}\\
+        \end{center}
 
     \item 
-        % TODO
-        TODO insert Task c)
+        Equation for such a model:
+        $$ \hat{y} = w*x + b $$
+
+        Gradient descent update rule:
+        $$ \nabla_W \text{MSE}_\text{train} = \nabla_W \frac{1}{m} \Vert (X^{(\text{train})} * w - y^{(\text{train})}) \Vert^2_2 $$
 
     \item 
-        % TODO
-        TODO insert Task d)
+        % TODO plots and learning rate
+        \begin{itemize}
+            \item 
+                we are initiating random values for W and b and after multiple executions (using learning rate 0.01 and 5000 epochs) we noticed that W seems tend towards $-20$ and b towards $619$. We decided to use these values as our initial values for W and b.
+
+            \item
+                After using these initial values and running the same procedure our gradient descent ``resulted'' in $W = -20.49593163$ and $b = 620.40246582$
+        \end{itemize}
+
+        using the initial values above and $epochs = 5000$ we are capturing the loss using a specific learningrate:
+        \begin{itemize}
+            \item
+                learningrate = 0.01 $\Rightarrow$ Cost = 1631.553466797
+            \item 
+                learningrate = 0.02 $\Rightarrow$ Cost = 1691.129394531
+            \item
+                learningrate = 0.1 $\Rightarrow$ Cost = 2964.26147609
+            \item
+                learningrate = 0.03 $\Rightarrow$ Cost = 1763.359008789
+            \item
+                learningrate = 0.001 $\Rightarrow$ Cost = 1540.411987305
+            \item
+                learningrate = 0.005 $\Rightarrow$ Cost = 1576.098876953
+            \item
+                learningrate = 0.0001 $\Rightarrow$ Cost = 1539.946899414
+        \end{itemize}
 
     \item 
         % TODO
