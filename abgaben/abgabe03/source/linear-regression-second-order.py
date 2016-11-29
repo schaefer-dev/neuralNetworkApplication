@@ -67,8 +67,8 @@ X = tf.placeholder("float")
 Y = tf.placeholder("float")
 
 
-learning_rate = 0.00001
-training_epochs = 5000
+learning_rate = 0.0001
+training_epochs = 1800
 display_step = 1
 #initW=-20.0
 #initb=619.0
@@ -117,11 +117,11 @@ with tf.Session() as sess:
     training_cost = sess.run(cost, feed_dict={X: trX, Y: trY})
     print("Training cost=", training_cost, "W_1=", sess.run(W_1), "W_2=", sess.run(W_2), "b=", sess.run(b), '\n')
 
-	# plot predicted training data
+    # plot predicted training data
     for (x, y) in zip(trX, trY):
-    	classification = sess.run(pred, feed_dict={X:x})
-	predictions.append(classification)
-	print(predictions)
+        classification = sess.run(pred, feed_dict={X:x})
+    predictions.append(classification)
+    print(predictions)
 
     plt.plot(trX, predictions, 'ro')
     plt.xlabel('x')
