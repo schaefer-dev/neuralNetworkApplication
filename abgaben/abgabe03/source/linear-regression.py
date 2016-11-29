@@ -67,11 +67,11 @@ X = tf.placeholder("float")
 Y = tf.placeholder("float")
 
 
-learning_rate = 0.001
-training_epochs = 100
+learning_rate = 0.0001
+training_epochs = 5000
 display_step = 1
-initW=-20.49593163
-initb=620.40246582
+initW=-20.0
+initb=619.0
 
 # Set model weights
 #W = tf.Variable(tf.random_normal([1,1], stddev=0.01))
@@ -113,11 +113,12 @@ with tf.Session() as sess:
 
 # plot costs for each epoch 
 epochlist=range(1,training_epochs+1)
-plt.plot(epochlist, costs, 'ro')
-plt.xlabel('x-points')
-plt.ylabel('y-points')
+plt.plot(epochlist, costs, 'r')
+plt.xlabel('epoche')
+plt.ylabel('cost')
+plt.axis([1,training_epochs+1, 1500,3500])
 #plt.set_title('Epochs')
-plt.savefig('costplots/cost'+str(training_epochs)+'_w'+str(initW)+'_b'+str(initb)+'.png')
+plt.savefig('costplots/cost'+str(training_epochs)+'_w'+str(initW)+'_b'+str(initb)+'_learn'+str(learning_rate)+'.png')
 plt.close()
 
 
