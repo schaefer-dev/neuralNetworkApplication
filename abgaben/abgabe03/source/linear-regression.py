@@ -19,14 +19,13 @@ def model(X, w):
 reader = csv.reader(open("auto-mpg.data", "rt"))
 cars = [];
 for row in reader:
-	car = row[0].split()
-	cars.append(car)
-
+    car = row[0].split()
+    cars.append(car)    
 X,Y=[],[]
 
 for car in cars:
-	X.append(float(car[0]))
-	Y.append(float(car[2]))
+    X.append(float(car[0]))
+    Y.append(float(car[2]))
 
 trX, trY, teX, teY = X[0:50],Y[0:50],X[50:100],Y[50:100]
 
@@ -47,6 +46,7 @@ trX, trY, teX, teY = X[0:50],Y[0:50],X[50:100],Y[50:100]
 #plt.savefig('test_distr.png')
 #plt.close()
 
+
 ##end plot ##
 
 #Debug
@@ -66,13 +66,18 @@ trX, trY, teX, teY = X[0:50],Y[0:50],X[50:100],Y[50:100]
 X = tf.placeholder("float")
 Y = tf.placeholder("float")
 
-# Set model weights
-W = tf.Variable(tf.random_normal([1,1], stddev=0.01))
-b = tf.Variable(tf.random_normal([1,1], stddev=0.01))
 
-learning_rate = 0.01
-training_epochs = 3000
+learning_rate = 0.001
+training_epochs = 100
 display_step = 1
+initW=-20.49593163
+initb=620.40246582
+
+# Set model weights
+#W = tf.Variable(tf.random_normal([1,1], stddev=0.01))
+#b = tf.Variable(tf.random_normal([1,1], stddev=0.01))
+W=tf.Variable(initW)
+b=tf.Variable(initb)
 
 # Construct a linear model
 pred = tf.add(tf.mul(X, W), b)
@@ -86,6 +91,7 @@ optimizer = tf.train.GradientDescentOptimizer(learning_rate).minimize(cost)
 init = tf.initialize_all_variables()
 
 # Launch the graph
+costs=[]
 with tf.Session() as sess:
     sess.run(init)
 
@@ -97,6 +103,7 @@ with tf.Session() as sess:
         # Display logs per epoch step
         if (epoch+1) % display_step == 0:
             c = sess.run(cost, feed_dict={X: trX, Y:trY})
+            costs.append(c)
             print("Epoch:", '%04d' % (epoch+1), "loss=", "{:.9f}".format(c), \
                 "W=", sess.run(W), "b=", sess.run(b))
 
@@ -104,6 +111,14 @@ with tf.Session() as sess:
     training_cost = sess.run(cost, feed_dict={X: trX, Y: trY})
     print("Training cost=", training_cost, "W=", sess.run(W), "b=", sess.run(b), '\n')
 
+# plot costs for each epoch 
+epochlist=range(1,training_epochs+1)
+plt.plot(epochlist, costs, 'ro')
+plt.xlabel('x-points')
+plt.ylabel('y-points')
+#plt.set_title('Epochs')
+plt.savefig('costplots/cost'+str(training_epochs)+'_w'+str(initW)+'_b'+str(initb)+'.png')
+plt.close()
 
 
 #X = tf.placeholder("float", [None, 784]) # create symbolic variables
