@@ -69,7 +69,6 @@
         $$ \nabla_W \text{MSE}_\text{train} = \nabla_W \frac{1}{m} \Vert (X^{(\text{train})} * w - y^{(\text{train})}) \Vert^2_2 $$
 
     \item 
-        % TODO plots and learning rate
         \begin{itemize}
             \item 
                 we are initiating random values for W and b and after multiple executions (using learning rate 0.01 and 5000 epochs) we noticed that W seems tend towards $-20$ and b towards $619$. We decided to use these values as our initial values for W and b.
@@ -78,27 +77,41 @@
                 After using these initial values and running the same procedure our gradient descent ``resulted'' in $W = -20.49593163$ and $b = 620.40246582$
         \end{itemize}
 
-        using the initial values above and $epochs = 5000$ we are capturing the loss using a specific learningrate:
-        \begin{itemize}
-            \item
-                learningrate = 0.01 $\Rightarrow$ Cost = 1631.553466797
-            \item 
-                learningrate = 0.02 $\Rightarrow$ Cost = 1691.129394531
-            \item
-                learningrate = 0.1 $\Rightarrow$ Cost = 2964.26147609
-            \item
-                learningrate = 0.03 $\Rightarrow$ Cost = 1763.359008789
-            \item
-                learningrate = 0.001 $\Rightarrow$ Cost = 1540.411987305
-            \item
-                learningrate = 0.005 $\Rightarrow$ Cost = 1576.098876953
-            \item
-                learningrate = 0.0001 $\Rightarrow$ Cost = 1539.946899414
-        \end{itemize}
+        using the initial values above and $epochs = 5000$ we are capturing the final loss after using a specific learningrate:
+
+
+                \begin{center}
+                    \includegraphics[scale = 0.52]{pictures/cost5000_w-20,0_b619,0_learn0,01}\\
+                    learningrate = 0.01 $\Rightarrow$ Cost = 1631.553466797\\
+                \end{center}
+
+                \begin{center}
+                    \includegraphics[scale = 0.52]{pictures/cost5000_w-20,0_b619,0_learn0,03}\\
+                    learningrate = 0.03 $\Rightarrow$ Cost = 1763.359008789\\
+                \end{center}
+
+                \begin{center}
+                    \includegraphics[scale = 0.52]{pictures/cost5000_w-20,0_b619,0_learn0,001}\\
+                    learningrate = 0.001 $\Rightarrow$ Cost = 1540.411987305\\
+                \end{center}
+
+                \begin{center}
+                    \includegraphics[scale = 0.52]{pictures/cost5000_w-20,0_b619,0_learn0,0001}\\
+                    learningrate = 0.0001 $\Rightarrow$ Cost = 1539.946899414\\
+                \end{center}
+
+                \begin{center}
+                    \includegraphics[scale = 0.52]{pictures/cost5000_w-20,0_b619,0_learn0,00001}\\
+                    learningrate = 0.00001 $\Rightarrow$ Cost = 1539.785766602\\
+                \end{center}
+
+                \begin{center}
+                    \includegraphics[scale = 0.52]{pictures/cost5000_w-20,0_b619,0_learn0,000001}\\
+                    learningrate = 0.000001 $\Rightarrow$ Cost = 1541.292480269\\
+                \end{center}
 
     \item 
-        % TODO
-        TODO insert Task e)
+        for this task we just use the best value from the task before (learningrate = 0.00001) which already converged to Cost = 1539.785766602 after 5000 epochs. 
 
     \item 
         % TODO
