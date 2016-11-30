@@ -1,0 +1,105 @@
+% exercise sheet with header on every page for math or close subjects
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc} 
+\usepackage{latexsym} 
+\usepackage{multicol}
+\usepackage{fancyhdr}
+\usepackage{amsfonts} 
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumerate}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+% Shortcuts for bb, frak and cal letters
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\V}{\mathbb{V}}
+\renewcommand{\P}{\mathbb{P}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Pfrak}{\mathfrak{P}}
+\newcommand{\Pfrac}{\mathfrak{P}}
+\newcommand{\Bfrac}{\mathfrak{P}}
+\newcommand{\Bfrak}{\mathfrak{B}}
+\newcommand{\Fcal}{\mathcal{F}}
+\newcommand{\Ycal}{\mathcal{Y}}
+\newcommand{\Bcal}{\mathcal{B}}
+\newcommand{\Acal}{\mathcal{A}}
+
+% formating
+\topmargin -1.5cm 
+\textheight 24cm
+\textwidth 16.0 cm 
+\oddsidemargin -0.1cm
+
+% Fancy Header on every Page
+\pagestyle{fancy}
+\lhead{\textbf{Pattern and Speech Recognition}}
+\rhead{Daniel Schäfer (2549458)\\ Christian Bohnenberger (2548364) \\ Dominik Weber (2548553)}
+\renewcommand{\headrulewidth}{1.2pt}
+
+\setlength{\headheight}{45pt} 
+
+\begin{document}
+\pagenumbering{gobble}
+
+% TODO set the number of the exercise sheet here!
+\setcounter{section}{4}
+
+\subsection{k-Means Clustering}
+\begin{enumerate}[a)]
+
+    \item 
+      
+
+    \item 
+
+    \item 
+
+    \item 
+        
+\end{enumerate}
+
+\subsection{Maximum Likelihood Estimation}
+
+	\begin{enumerate}
+	
+	\item
+
+	There are 6 independent variables with poisson distribution.
+	
+	$$L(\lambda)= P(\{X_1=2\} \cap \{X_2=3\} \cap \{X_3=0\} \cap \{X_4=2\} \cap \{X_5=1\} \cap \{X_6=5\})$$
+	
+	$$\Rightarrow^{independency} L(\lambda)= P(X_1=2) * P(X_2=3) * P(X_3=0) * P(X_4=2) * P(X_5=1) * P(X_6=5)$$
+	
+	Remember: $P(X=x)= \frac{\lambda^x}{x!}*e^{-\lambda}$
+	
+	$$L(\lambda)= \frac{\lambda^2}{2!}*e^{-\lambda} * \frac{\lambda^3}{3!}*e^{-\lambda} * \frac{\lambda^0}{0!}*e^{-\lambda} * \frac{\lambda^2}{2!}*e^{-\lambda} * \frac{\lambda^1}{1!}*e^{-\lambda} * \frac{\lambda^5}{5!}*e^{-\lambda} $$
+	
+	$$ \Leftrightarrow L(\lambda)= \frac{1}{2!*3!*0!*2!*1!*5!} * \lambda^{13} * e^{-\lambda} $$
+	
+	$$ \frac{\delta L(\lambda)}{\delta \lambda} = \frac{1}{2880}*(13\lambda^{12}*e^{-8\lambda} -8\lambda^{13}*e^{-8\lambda})=0$$
+	
+	$$ \Leftrightarrow -\frac{e^{-8\lambda}*\lambda^{12}*(8\lambda-13)}{2280} = 0 $$
+	
+	$$ \Rightarrow \hat{\lambda}=0 \vee \hat{\lambda}=\frac{13}{8} $$
+	
+	The likelihood function has a max at $\hat{\lambda}=\frac{13}{8}$, therefore the desired $\lambda$ is $\lambda=\hat{\lambda}$.
+
+	\item	
+	
+	$$ P(X_7=2) = \frac{(\frac{13}{8})^2}{2!} * e^{-\frac{13}{8}} \approx 0.2599985 $$
+	
+	$ P(X_7=2)$ is at about 26\%.
+	
+	\end{enumerate}
+
+\subsection{Composite functions}
+
+\subsection{Classification}
+
+
+\end{document}
