@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import random as random
+import math as math
 
 
 ############### Parameters ############################
@@ -24,10 +25,10 @@ if (plotDataSet):
 
 
 # Compute maximum and minimum x and y
-max_x = 0
-min_x = 0
-max_y = 0
-min_y = 0
+max_x = 0.0
+min_x = 0.0
+max_y = 0.0
+min_y = 0.0
 for entry in data:
     if entry[0] > max_x:
         max_x = entry[0]
@@ -55,12 +56,56 @@ for i in range(k):
     x = random.uniform(min_x, max_x)
     y = random.uniform(min_y, max_y)
     clusters.append([x, y])
-    print("generated random cluster at (" + str(x) + ", " + str(y) + ")")
+    print("generated random cluster " + str(i+1) + " at (" + str(x) + ", " + str(y) + ")")
 
 
+iteration = 0
 while (clustering):
-    # TODO impelemnt Clustering here like in Slides
 
-    clustering = False
+    iteration += 1
+    maxdist = math.hypot(max_x - min_x, max_y - min_y)
+    noCluster = len(clusters)
+    clustermatches = []
+
+    # clear/initiate the lists which match a point to the closest cluster
+    for i in range(k):
+        clusterpoints.append([])
+
+    # Assign each data point to its nearest center
+    for point in data:
+        dist = maxdist
+        clustermatch = noCluster
+
+        # search for the cluster which has the smallest distance to this point
+        # and match this point to this cluster
+        clusteriter = 0
+        for cluster in clusters:
+            if dist > math.hypot(point[0] - cluster[0], point[1] - cluster[1]):
+                dist = math.hypot(point[0] - cluster[0], point[1] - cluster[1])
+                clustermatch = clusteriter
+            clusteriter += 1
+        clusterpoints[clustermatch].append(point)
+
+    # Recalculate cluster centers
+    clusters = []
+    for i in range(k):
+        sum_x = 0.0
+        sum_y = 0.0
+        size = float(len(clusterpoints[i]))
+        for point in clusterpoints[i]:
+            sum_x += point[0]
+            sum_y += point[1]
+        if (size == 0):
+            cluster_x = 0
+            cluster_y = 0
+        else:
+            cluster_x = sum_x / size
+            cluster_y = sum_y / size
+        clusters.append([cluster_x, cluster_y])
+        print("cluster " + str(i+1) + " moved to (" + str(cluster_x) + ", " + str(cluster_y) + ")")
+
+    # TODO abbruchbedingung implementieren
+    if (iteration == 10):
+        clustering = False
 
 plt.show()
