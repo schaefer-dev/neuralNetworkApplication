@@ -98,6 +98,52 @@
 	\end{enumerate}
 
 \subsection{Composite functions}
+	$$f(x,y)=log(sin(xy))$$\\
+		Idea:\\
+		First order derivation:\\
+		Use chain rule with $f(x)=log(x)$ and $u=sin(xy)$
+	\begin{enumerate}
+		\item
+		First order derivation:\\
+		\begin{enumerate}
+		\item
+		$$ \frac{\delta}{\delta x} f(x,y)=^{Chain~rule} \frac{\delta}{\delta u}(log(u))* \frac{\delta}{\delta x} sin(xy)
+			= \frac{\delta}{\delta u}\frac{ln(u)}{ln(10)} * \frac{\delta}{\delta x} sin(xy) $$ \\
+		$$	= \frac{1}{u*ln(10)} * \frac{\delta}{\delta x} sin(xy)) 
+			= \frac{1}{u*ln(10)} * y * cos(xy) = \frac{y*cos(xy)}{u*ln(10)} $$
+		replace u with $sin(xy)$:
+		$$ \frac{\delta}{\delta x} f(x,y) = \frac{y*cos(xy)}{sin(xy)*ln(10)} $$
+		
+		\item
+		$ \frac{\delta}{\delta y} f(x,y)$ analogously \\
+		$$ \Rightarrow \frac{\delta}{\delta y} f(x,y) = \frac{x*cos(xy)}{sin(xy)*ln(10)} $$
+		
+		\end{enumerate}
+		
+		\item		
+		Second order derivation:\\
+		\begin{enumerate}
+			\item
+			$$  \frac{\delta}{\delta xx} f(x,y) =  \frac{\delta}{\delta x} \frac{y*cos(xy)}{sin(xy)*ln(10)}$$\\
+			$$ = \frac{(\frac{\delta}{\delta x}y*cos(xy))*sin(xy)*ln(10)-(\frac{\delta}{\delta x} sin(xy)*ln(10))*y*cos(xy)}{sin^2(xy)*ln(10)^2} $$\\
+			$$ = \frac{y^2 * (-sin(xy))*sin(xy)*ln(10)-y^2*cos(xy)*ln(10)*cos(xy)}{sin^2(xy)*ln(10)^2}$$
+			$$ = \frac{y^2*ln(10)*(-sin^2(xy)-cos^2(xy))}{sin^2(xy)*ln(10)^2} = -\frac{y^2}{sin^2(xy)*ln(10)} $$
+		
+			\item
+			$$  \frac{\delta}{\delta xy} f(x,y) =  \frac{\delta}{\delta y} \frac{y*cos(xy)}{sin(xy)*ln(10)}$$\\
+			$$ = \frac{(\frac{\delta}{\delta y}y*cos(xy))*sin(xy)*ln(10)-(\frac{\delta}{\delta y} sin(xy)*ln(10))*y*cos(xy)}{sin^2(xy)*ln(10)^2} $$\\
+			$$ = \frac{cos(xy)*sin(xy)*ln(10)+ xy*(-sin(xy))*sin(xy)*ln(10) - xy *ln(10) *cos^2(xy)}{sin^2(xy)*ln(10)^2} $$
+			
+			$$ = \frac{cos(xy)*sin(xy)- xy*sin^2(xy) - xy *cos^2(xy)}{sin^2(xy)*ln(10)} $$
+			\item
+			$  \frac{\delta}{\delta yy} f(x,y)$ analogously to $  \frac{\delta}{\delta xy} f(x,y) $ \\
+			$$  \frac{\delta}{\delta yy} f(x,y)= \frac{-x^2}{sin^2(xy)*ln(10)}$$
+			\item
+			$  \frac{\delta}{\delta yx} f(x,y)$ analogously to $ \frac{\delta}{\delta xy} f(x,y) $
+			$$  \frac{\delta}{\delta yx} f(x,y) = \frac{cos(xy)*sin(xy)- xy*sin^2(xy) - xy *cos^2(xy)}{sin^2(xy)*ln(10)} $$
+		\end{enumerate}
+		
+	\end{enumerate}
 
 \subsection{Classification}
 
