@@ -5,8 +5,15 @@ import math as math
 
 ############### Parameters ############################
 
-plotDataSet = True
 k = 2
+
+# spectate = True if you want to see the movement of the clusters in single steps!
+spectate = True
+
+
+def plotSet(set, color):
+    for i in range(0, len(set)):
+        plt.plot(set[i][0], set[i][1], color)
 
 
 ############### Reading of data points ################
@@ -18,10 +25,8 @@ with open('data_kmeans.txt') as f:
         data.append([float(x) for x in line.split()])
 
 
-# Plotting of array
-if (plotDataSet):
-    for i in range(0,len(data)):
-        plt.plot(data[i][0],data[i][1], 'ro')
+# initial Plotting of dataSet
+plotSet(data, 'go')
 
 
 # Compute maximum and minimum x and y
@@ -57,6 +62,13 @@ for i in range(k):
     y = random.uniform(min_y, max_y)
     clusters.append([x, y])
     print("generated random cluster " + str(i+1) + " at (" + str(x) + ", " + str(y) + ")")
+
+# show result after generating random clusters
+if (spectate):
+    plotSet(clusters, 'ro')
+    print("--------------------- close Plot to continue computation ---------------------")
+    plt.show()
+
 
 
 iteration = 0
@@ -102,10 +114,14 @@ while (clustering):
             cluster_x = sum_x / size
             cluster_y = sum_y / size
         clusters.append([cluster_x, cluster_y])
-        print("cluster " + str(i+1) + " moved to (" + str(cluster_x) + ", " + str(cluster_y) + ")")
+        print("Step " + str(iteration) + ": cluster " + str(i+1) + " moved to (" + str(cluster_x) + ", " + str(cluster_y) + ")")
 
-    # TODO abbruchbedingung implementieren
+    if (spectate):
+        plotSet(data, 'go')
+        plotSet(clusters, 'ro')
+        print("--------------------- close Plot to continue computation ---------------------")
+        plt.show()
+
+    # TODO abbruchbedingung implementieren anstelle von 10 fixed
     if (iteration == 10):
         clustering = False
-
-plt.show()
