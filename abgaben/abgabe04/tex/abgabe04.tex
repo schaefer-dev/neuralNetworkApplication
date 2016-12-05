@@ -51,15 +51,54 @@
 
 \subsection{k-Means Clustering}
 \begin{enumerate}[a)]
+    \item 
+        Here you can see the provided \verb* data_kmeans.txt  Datapoints
+        \begin{center}
+            \includegraphics[scale = 0.52]{pictures/datapoints}\\
+        \end{center}
 
     \item 
-      
+        see file kmeans.py
 
     \item 
+        Here you can see the clustering steps:
+        \begin{center}
+            \includegraphics[scale = 0.52]{pictures/plot1}\\
+            \includegraphics[scale = 0.52]{pictures/plot2}\\
+            \includegraphics[scale = 0.52]{pictures/plot3}\\
+            \includegraphics[scale = 0.52]{pictures/plot4}\\
+        \end{center}
+
+        the random clusters moved like this:
+        \begin{itemize}
+
+            \item 
+                \textbf{Picture 1:}\\
+                generated random cluster 1 at (1.0221709411131013, 0.7841772734348531)\\
+                generated random cluster 2 at (8.213207477643335, 3.0972673201979424)
+
+            \item 
+                \textbf{Picture 2:}\\
+                Step 1: cluster 1 moved to (-1.908999876156978, -1.4972068985158022)\\
+                Step 1: cluster 2 moved to (5.21037564989902, 4.393096131680557)
+
+            \item 
+                \textbf{Picture 3:}\\
+                Step 2: cluster 1 moved to (-3.8302993963816205, -3.801775709971144)\\
+                Step 2: cluster 2 moved to (4.158934618965977, 4.267313391886655)
+
+            \item 
+                \textbf{Picture 4:}\\
+                Step 3: cluster 1 moved to (-3.917826251367856, -3.921069119340969)\\
+                Step 3: cluster 2 moved to (4.0866767936452595, 4.225225019219325)
+
+            \item
+                the clusters (and J) didnt change after Step4 and the algorithm terminated
+
+        \end{itemize}
 
     \item 
-
-    \item 
+        J is essentially the sum of the distances of every single datapoint to the closest cluster of that point. For this distance to become zero you need at least the same number of clusters as datapoints in the set, because every datapoint has to have exactly the same coordinates as a cluster for the distance to the closest cluster to be zero. In the case of \verb* data_kmeans.txt we would need $k \geq 200$ for J to attain the value zero.
         
 \end{enumerate}
 

@@ -30,7 +30,6 @@ with open('data_kmeans.txt') as f:
     for line in f: # read lines
         data.append([float(x) for x in line.split()])
 
-
 # initial Plotting of dataSet
 plotSet(data, 'go')
 
@@ -135,7 +134,7 @@ while (clustering):
     oldJ = J
     J = 0
     for i in range(0,k):
-        for x in data:
+        for x in clusterpoints[i]:
             J += (x[0] - clusters[i][0])**2 + (x[1] - clusters[i][1])**2
 
 
