@@ -3,12 +3,18 @@ import random as random
 import math as math
 
 
-############### Parameters ############################
+############### Parameters BEGIN ###################
 
 k = 2
 
 # spectate = True if you want to see the movement of the clusters in single steps!
-spectate = True
+spectate = False
+
+# enable plots for exercise c (only works for k = 2)
+ex41c = True
+
+
+############### Parameters END ###################
 
 
 def plotSet(set, color):
@@ -75,9 +81,10 @@ iteration = 0
 while (clustering):
 
     iteration += 1
-    maxdist = math.hypot(max_x - min_x, max_y - min_y)
+    # maxdist = math.hypot(max_x - min_x, max_y - min_y)
+    maxdist = 9999999999999
     noCluster = len(clusters)
-    clustermatches = []
+    clusterpoints = []
 
     # clear/initiate the lists which match a point to the closest cluster
     for i in range(k):
@@ -97,6 +104,13 @@ while (clustering):
                 clustermatch = clusteriter
             clusteriter += 1
         clusterpoints[clustermatch].append(point)
+
+    if (ex41c):
+        plotSet(clusterpoints[0], 'go')
+        plotSet(clusterpoints[1], 'yo')
+        plotSet(clusters, 'ro')
+        print("--------------------- close Plot to continue computation ---------------------")
+        plt.show()
 
     # Recalculate cluster centers
     clusters = []
