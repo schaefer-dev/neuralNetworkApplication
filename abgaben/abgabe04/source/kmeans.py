@@ -11,7 +11,7 @@ k = 2
 spectate = False
 
 # enable plots for exercise c (only works for k = 2)
-ex41c = True
+ex41c = False
 
 
 ############### Parameters END ###################
@@ -59,8 +59,6 @@ clusters = []
 # list which matches point to a certain cluster
 clusterpoints = []
 
-# variable to interupt clustering process
-clustering = True
 
 # generate random clusters
 for i in range(k):
@@ -75,9 +73,10 @@ if (spectate):
     print("--------------------- close Plot to continue computation ---------------------")
     plt.show()
 
-
-
+# variable to interupt clustering process
+clustering = True
 iteration = 0
+J = 0.0
 while (clustering):
 
     iteration += 1
@@ -113,6 +112,7 @@ while (clustering):
         plt.show()
 
     # Recalculate cluster centers
+    oldclusters = clusters
     clusters = []
     for i in range(k):
         sum_x = 0.0
@@ -130,12 +130,34 @@ while (clustering):
         clusters.append([cluster_x, cluster_y])
         print("Step " + str(iteration) + ": cluster " + str(i+1) + " moved to (" + str(cluster_x) + ", " + str(cluster_y) + ")")
 
+
+    # Recalculate J Objective:
+    oldJ = J
+    J = 0
+    for i in range(0,k):
+        for x in data:
+            J += (x[0] - clusters[i][0])**2 + (x[1] - clusters[i][1])**2
+
+
     if (spectate):
         plotSet(data, 'go')
         plotSet(clusters, 'ro')
         print("--------------------- close Plot to continue computation ---------------------")
         plt.show()
 
-    # TODO abbruchbedingung implementieren anstelle von 10 fixed
-    if (iteration == 10):
+
+
+    # Termination conditions
+    sameClusters = True
+    for i in range(1,k):
+        # if there is a cluster which moved we do NOT terminate already!
+        if (clusters[i] != oldclusters[i]):
+            sameClusters = False
+    if (sameClusters):
+        print("Termination because the clusters did not change!")
+        clustering = False
+
+    # IF J doesnt change we terminate
+    if (oldJ == J):
+        print("Termination because the J Objective did not change!")
         clustering = False
