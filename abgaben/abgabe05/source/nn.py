@@ -1,15 +1,20 @@
 import tensorflow as tf
 import input_data
+import numpy as np
+import pylab as plt
 
 mnist = input_data.read_data_sets("/tmp/data/", one_hot=True)
-print(mnist.train.labels)
+
+def sigmaprime(x):
+    return tf.mul(sigma(x), tf.sub(tf.constant(1.0), sigma(x)))
 
 def sigmoid(x):
-    return 1 / (1 + tf.exp(-x))
+    return tf.div(tf.constant(1.0),tf.add(tf.constant(1.0),tf.exp(-x)))
+
 
 # Parameters
 learning_rate = 0.001
-training_epochs = 15
+training_epochs = 3
 batch_size = 100
 display_step = 1
 
@@ -31,6 +36,29 @@ def predict(x):
     out_layer = sigmoid(out_layer)
     return out_layer
 
+def train(X,epochs,epsilon):
+    with tf.Session() as sess:
+        sess.run(init)
+        loss = []
+        for epoch in range(0,epochs):
+            i = 0
+            MSE = 0
+            y1 = sess.run(predict(X.images))
+            y = X.labels[i]
+            diff = y1-y
+            for d in diff:
+                MSE = np.dot(d,d)
+            MSE = MSE/2
+            plt.scatter(epoch,MSE)
+            print("Epoch:", '%04d' % (epoch+1), "cost=",MSE)
+        # Test model
+        correct_prediction = tf.equal(tf.argmax(pred, 1), tf.argmax(y, 1))
+        # Calculate accuracy
+        accuracy = tf.reduce_mean(tf.cast(correct_prediction, "float"))
+        print("Accuracy:", accuracy.eval({x: mnist.test.images, y: mnist.test.labels}))
+        plt.show()  
+
+
 # Store layers weight & bias
 weights = {
     'h1': tf.Variable(tf.random_normal([n_input, n_hidden_1])),
@@ -44,37 +72,8 @@ biases = {
 # Construct model
 pred = predict(x)
 
-# Define loss and optimizer
-cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(pred, y))
-optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(cost)
-
 # Initializing the variables
 init = tf.initialize_all_variables()
 
-# Launch the graph
-with tf.Session() as sess:
-    sess.run(init)
-
-    # Training cycle
-    for epoch in range(training_epochs):
-        avg_cost = 0.
-        total_batch = int(mnist.train.num_examples/batch_size)
-        # Loop over all batches
-        for i in range(total_batch):
-            batch_x, batch_y = mnist.train.next_batch(batch_size)
-            # Run optimization op (backprop) and cost op (to get loss value)
-            _, c = sess.run([optimizer, cost], feed_dict={x: batch_x,
-                                                          y: batch_y})
-            # Compute average loss
-            avg_cost += c / total_batch
-        # Display logs per epoch step
-        if epoch % display_step == 0:
-            print("Epoch:", '%04d' % (epoch+1), "cost=", \
-                "{:.9f}".format(avg_cost))
-    print("Optimization Finished!")
-
-    # Test model
-    correct_prediction = tf.equal(tf.argmax(pred, 1), tf.argmax(y, 1))
-    # Calculate accuracy
-    accuracy = tf.reduce_mean(tf.cast(correct_prediction, "float"))
-    print("Accuracy:", accuracy.eval({x: mnist.test.images, y: mnist.test.labels}))
+X = mnist.train
+train(X,training_epochs,learning_rate)
