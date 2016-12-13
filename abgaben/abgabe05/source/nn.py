@@ -73,7 +73,7 @@ def train(X,epochs,epsilon):
             res = sess.run(acct_res, feed_dict =
                         {x: mnist.test.images[:1000],
                         y : mnist.test.labels[:1000]})
-            print res
+            print(res)
         plt.show()  
 
 
