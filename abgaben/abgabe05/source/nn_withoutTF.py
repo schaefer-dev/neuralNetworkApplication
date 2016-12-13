@@ -18,10 +18,10 @@ def backprog(X,Y,epsilon):
     d_z_1 = np.matmul(d_a_1,sigmaprime(z_1))
     d_b_1 = d_z_1
     d_w_1 = np.matmul(X.T,d_z_1)
-    weights['h1'] =weights['h1'] - epsilon*d_w_1
-    biases['b1']  =biases['b1'] - epsilon*d_b_1
-    weights['out']=weights['out'] - epsilon*d_w_2
-    biases['out'] =biases['out'] - epsilon*d_b_2
+    weights['h1'] = weights['h1'] - epsilon*d_w_1
+    biases['b1']  = biases['b1'] - epsilon*d_b_1
+    weights['out']= weights['out'] - epsilon*d_w_2
+    biases['out'] = biases['out'] - epsilon*d_b_2
 
 def sigmaprime(x):
     return np.matmul(sigma(x).T,(1.0 - sigma(x)))
