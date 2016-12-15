@@ -55,7 +55,7 @@ def train(X,epochs,epsilon):
                 tf.sub(bo, tf.mul(epsilon,
                                    tf.reduce_mean(d_bo, reduction_indices=[0]))))]
 
-    for i in xrange(epochs):
+    for i in range(epochs):
         batch_xs, batch_ys = X.next_batch(10)
         sess.run(step, feed_dict = {x: batch_xs,
                                     y : batch_ys})
@@ -70,7 +70,7 @@ def train(X,epochs,epsilon):
             res = sess.run(acct_res, feed_dict =
                            {x: mnist.test.images[:1000],
                             y : mnist.test.labels[:1000]})
-            print res
+            print(res)
 
 #parameter
 hidden_1 = 256

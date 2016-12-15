@@ -1,1 +1,1 @@
-nn.py and nn_withoutTF.py both implement the NN from Ex5.2 one without and one with using TensorFlow. Unfortunatly our Train process contains some error, which causes the training not to progess! We hope that you can read through our code and can give us points for everything we did right because we are pretty sure that we only have a minor error we just were not able to find in time.
+nn.py implement the exercise in python3
