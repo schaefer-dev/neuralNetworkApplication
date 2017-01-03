@@ -66,6 +66,19 @@ Dropout can be seen as an extreme form of bagging in which each model is trained
 Boosting tries to improve the learners by focusing on learners where the system is not performing well by identifying significant errors and increasing the weight of this data in the next 'bagging-bag' which hopefully produces a better result. So boosting is an addon to Bagging where in subsequent bags we choose those data instances that have been modeled poorly in the overall system before.
 
 \subsection{}
+\begin{enumerate}[a)]
+	\item 
+		After $\tau$ steps, the components of the weight vector parallel to the eigenvectors of H can be written as:\\
+			$$w^\tau_j= \{1-(1- \epsilon*\lambda)^\tau)\}*w^*_j $$ \\
+		With $\tau \rightarrow \infty $ we get $(1- \epsilon*\lambda)^\tau)=0$ since we know $(1- \epsilon*\lambda)^\tau)<1$ by definition. Since:
+		   $$lim_{\tau \rightarrow \infty} (w^\tau_j= \{1-(1- \epsilon*\lambda)^\tau)\}*w^*_j) = w^\tau_j= \{1-0\}*w^*_j$$\\
+		   and \\
+		   $$(w^\tau_j= \{1-0\}*w^*_j)= (w^\tau_j= w^*_j)$$
+		   and this holds for all j and $w^\tau= w^\tau_0 \dots w^\tau_j$ for the max j and therefore we get:\\
+		   $$ w^\tau \rightarrow w^* $$
+		    
+		
+\end{enumerate}
 
 
 
