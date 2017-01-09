@@ -70,6 +70,8 @@
  		\end{tabular}
  		
  	\item 
+ 	Gradient descent is computed to the complete data set (or a batch if tensorflow implements gradient batch size) and only in the end one update is done. Here there is only one learning rate and each parameter is updated with this learning rate, hence we change every parameter with the same rate.\\
+ 	In Adagard a different way to update the weights/parameters is used. Here the learning rate is adapted to the parameters. In particular larger updates are performed for infrequent parameters, whereas smaller updates are performed for frequent parameters since you have more data to update the weights more slowly and carefully. This performs normally very well and outperforms gradient descent, however there are also cases in which the learning rate becomes very small such that the parameters are no longer updated. This could happen here. Furthermore the number of epochs is very small in comparison and the parameters are updated with smaller weights in comparison to the gradient descent approach. That's also a reason why gradient could be better in this example.\\
 \end{enumerate}
 
 
