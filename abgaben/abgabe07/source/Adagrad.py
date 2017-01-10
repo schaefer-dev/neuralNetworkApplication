@@ -36,18 +36,21 @@ ax.set_zlabel('Z Label')
 
 # Initial point
 x = matrix([[3], [-1]])
-r = np.zeros(x.shape[0])
+r = [[0,0],[0,0]]
 
 for i in range(0, iterations):
     coordX = x.item(0)
     coordY = x.item(1)
     df = fpx(x)
+    print(x,fpx(x))
     fxy = f(x)
     # Drawing of the adagrad in yellow
-    ax.scatter(coordX,coordY,fxy, c='yellow')
-    print(r,x)
-    r = r + np.tensordot(df,df)
-    x = x - (epsilon/(delta+np.sqrt(r))) * df
+    #print(coordX,coordY,fxy)
+    r = r + np.tensordot(np.abs(df),np.abs(df),0).reshape(2,2)
+    grad = (epsilon/(delta+np.sqrt(r)))
+    grad = np.asarray(grad)
+    print(df)
+    x = x - grad*df
 
 x2 = matrix([[3], [-1]])
 # in red gradient descent
