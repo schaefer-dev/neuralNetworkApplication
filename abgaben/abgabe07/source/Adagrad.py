@@ -47,7 +47,7 @@ for i in range(0, iterations):
     ax.scatter(coordX,coordY,fxy, c='yellow')
     print(r,x)
     r = r + np.tensordot(df,df)
-    x = x - epsilon * df/(delta+np.sqrt(r))
+    x = x - (epsilon/(delta+np.sqrt(r))) * df
 
 x2 = matrix([[3], [-1]])
 # in red gradient descent
