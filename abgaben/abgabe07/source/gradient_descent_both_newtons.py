@@ -48,7 +48,7 @@ ax.set_zlabel('Z Label')
 
 # in yellow gradient descent with momentum
 lastupdate = 0
-for i in range(0, iterations):
+for i in range(0, iterations+1):
     coordX = x.item(0)
     coordY = x.item(1)
     fxy = f(x)
@@ -66,7 +66,7 @@ for i in range(0, iterations):
 
 
 # in red gradient descent
-for i in range(0, iterations):
+for i in range(0, iterations+1):
     coordX = x2.item(0)
     coordY = x2.item(1)
     fxy = f(x2)
@@ -82,7 +82,7 @@ for i in range(0, iterations):
     x2 = x2 - epsilon * fpx(x2)
 
 # newtons method
-for i in range(0, 5):
+for i in range(0, 5+1):
     coordX = x3.item(0)
     coordY = x3.item(1)
     fxy = f(x3)
