@@ -45,7 +45,7 @@ for i in range(0, iterations):
     print(x,fpx(x))
     fxy = f(x)
     # Drawing of the adagrad in yellow
-    #print(coordX,coordY,fxy)
+    print(coordX,coordY,fxy)
     r = r + np.tensordot(np.abs(df),np.abs(df),0).reshape(2,2)
     grad = (epsilon/(delta+np.sqrt(r)))
     grad = np.asarray(grad)
