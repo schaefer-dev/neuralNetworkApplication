@@ -74,5 +74,42 @@
  	In Adagard a different way to update the weights/parameters is used. Here the learning rate is adapted to the parameters. In particular larger updates are performed for infrequent parameters, whereas smaller updates are performed for frequent parameters since you have more data to update the weights more slowly and carefully. This performs normally very well and outperforms gradient descent, however there are also cases in which the learning rate becomes very small such that the parameters are no longer updated. This could happen here. Furthermore the number of epochs is very small in comparison and the parameters are updated with smaller weights in comparison to the gradient descent approach. That's also a reason why gradient could be better in this example.\\
 \end{enumerate}
 
+\subsection{ }
+\begin{enumerate}[a)]
+    \item 
+        see file \verb!gradient_descent.py!
+
+    \item
+        see file \verb!gradient_descent_momentum.py!
+
+    \item
+        in yellow you can see gradient descent with momentum and in red you can see ``normal'' gradient descent.\\
+        \begin{center}
+            \includegraphics[scale = 0.8]{pictures/figure_1}\\
+        \end{center}
+
+    \item
+        as you can clearly see in the plot above gradient descent with momentum is progressing a lot faster than without (with the values we used).\\
+
+        \textbf{with momentum after 30 iterations:}
+        \begin{verbatim}
+        X = 0.23111880569092993
+        Y = -2.6012090540073087
+        f(x,y) = -6.60604083562
+        \end{verbatim}
+
+        \textbf{without momentum after 30 iterations:}
+        \begin{verbatim}
+        X = 0.831146841312047
+        Y = -1.7758446902974057
+        f(x,y) = -1.08120914859
+        \end{verbatim}
+
+    \item
+        % TODO
+        TODO
+
+\end{enumerate}
+
 
 \end{document}
