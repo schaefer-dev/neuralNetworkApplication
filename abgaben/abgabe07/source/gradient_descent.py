@@ -37,7 +37,7 @@ ax.set_zlabel('Z Label')
 
 ## alternative plotting End ---------------
 
-for i in range(0, iterations):
+for i in range(0, iterations+1):
     coordX = x.item(0)
     coordY = x.item(1)
     fxy = f(x)
