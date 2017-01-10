@@ -4,25 +4,23 @@ from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
 import numpy as np
 
+epsilon = 0.01
+iterations = 5
 
 def f(x):
-    return 20 * x[0, 0] * x[0, 0] + x[1, 0] * x[1, 0] / 4
-
+    return 3 * x[0, 0] * x[0, 0] - x[1, 0] * x[1, 0]
 
 def fp(x):
-    return matrix([[20 * x[0, 0]], [x[1, 0] / 2]])
+    return matrix([[6 * x[0, 0]], [-2 * x[1, 0]]])
 
 
 def hfi(x):
-    H = matrix([[40, 0], [0, 0.5]])
+    H = matrix([[6, 0], [0, -2]])
     Hi = H.I
     return Hi
 
 # Initial point
-x = matrix([[-2], [4]])
-
-# Learning rate
-epsilon = 1
+x = matrix([[5], [-1]])
 
 
 ## alternative plotting Begin ---------------
@@ -45,7 +43,7 @@ ax.set_zlabel('Z Label')
 ## alternative plotting End ---------------
 
 
-for i in range(0, 30):
+for i in range(0, iterations):
     coordX = x.item(0)
     coordY = x.item(1)
     fxy = f(x)
