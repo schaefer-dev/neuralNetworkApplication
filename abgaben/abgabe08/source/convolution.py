@@ -48,7 +48,7 @@ def main():
    # ex 8.2 b)
    h = 1./9.
    k1=np.matrix([[h,h,h],[h,h,h],[h,h,h]])
-   im_noise = readImage('im_conv.png')
+   im_noise = readImage('clock_noise.png')
    im_conv = conv(im_noise,k1)
    plt.imshow(im_conv, cmap=plt.cm.gray)
    im_conv = min_max_rescale(im_conv)
