@@ -18,7 +18,7 @@ def conv(image, kernel):
         for j in range(0,(image_height-1)-kernel_height):
             for k in range(0,(kernel_width-1)):
                 for l in range(0,(kernel_height-1)):
-                    conv_image[i,j] += image[i+k,j+l]*kernel[k,l]
+                    conv_image[i,j] += image[i+k,j+k]*kernel[k,l]
 
 
     return conv_image
@@ -54,7 +54,7 @@ def main():
    im_conv = min_max_rescale(im_conv)
    misc.imsave('im_conv.png',im_conv)
 
-   # ex 8.2 b)
+   # ex 8.2 c)
    k2=np.matrix([[0,0,0],[1,-2,1],[0,0,0]])
    im = readImage('clock.png')
    im2_conv = conv(im,k2)
