@@ -18,7 +18,7 @@ def conv(image, kernel):
         for j in range(0,(image_height-1)-kernel_height):
             for k in range(0,(kernel_width-1)):
                 for l in range(0,(kernel_height-1)):
-                    conv_image[i,j] += image[i+k,j+k]*kernel[k,l]
+                    conv_image[i,j] += image[i+k,j+l]*kernel[k,l]
 
 
     return conv_image
