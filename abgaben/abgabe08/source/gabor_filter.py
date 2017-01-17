@@ -53,17 +53,14 @@ for theta in range(4):
                                           sigma_x=sigma, sigma_y=sigma))
             kernels.append(kernel)
 
-
-shrink = (slice(0, None, 3), slice(0, None, 3))
-brick = img_as_float(data.load('hide.png'))[shrink]
+shrink = (slice(0, None, 1), slice(0, None, 1))
+hide = img_as_float(data.load('/hide.png'))[shrink]
 image_names = ('hide')
 images = (hide)
 
 # prepare reference features
-ref_feats = np.zeros((3, len(kernels), 2), dtype=np.double)
-ref_feats[0, :, :] = compute_feats(brick, kernels)
-ref_feats[1, :, :] = compute_feats(grass, kernels)
-ref_feats[2, :, :] = compute_feats(wall, kernels)
+ref_feats = np.zeros((1, len(kernels), 2), dtype=np.double)
+ref_feats[0, :, :] = compute_feats(hide, kernels)
 
 print('Rotated images matched against references using Gabor filter banks:')
 
