@@ -26,6 +26,7 @@ def convfix(image,kernel):
 
    conv_image = np.zeros((image_width,image_height))
 
+   # convolution process
    for x in range(0,(image_width - 1)):
        for y in range(0,(image_height - 1)):
            for a in range(-width_shift, width_shift):
@@ -83,16 +84,21 @@ def main():
    h = 1./9.
    k1=np.matrix([[h,h,h],[h,h,h],[h,h,h]])
    im_noise = readImage('clock_noise.png')
-   im_conv = conv(im_noise,k1)
+   im_conv = convfix(im_noise,k1)
    plt.imshow(im_conv, cmap=plt.cm.gray)
    im_conv = min_max_rescale(im_conv)
+   plt.imshow(im_conv, cmap=plt.cm.gray)
+   plt.show()
    misc.imsave('im_conv_b.png',im_conv)
 
    # ex 8.2 c)
-   k2=np.matrix([[0,0,0],[1,-2,1],[0,0,0]])
-   im = readImage('clock.png')
-   im2_conv = conv(im,k2)
+   k2=np.matrix([[0.0,0.0,0.0],[1.0,-2.0,1.0],[0.0,0.0,0.0]])
+   im2 = readImage('clock.png')
+   im2_conv = convfix(im2,k2)
    im2_conv = min_max_rescale(im2_conv)
+   plt.imshow(im2_conv, cmap=plt.cm.gray)
+   plt.show()
    misc.imsave('im_conv_c.png',im2_conv)
+
 if __name__=="__main__":
     main()
