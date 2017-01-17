@@ -6,6 +6,7 @@ def readImage(path):
     return misc.imread(path)
 
 def conv(image, kernel):
+    # ex 8.2 a)
 
     kernel_width = kernel.shape[0]
     kernel_height = kernel.shape[1]
@@ -32,7 +33,7 @@ def min_max_rescale(image):
     maxV = image.max()
     minV = image.min()
 
-    print minV, maxV
+    print (minV, maxV)
 
     res = np.zeros((ix,iy))
 
@@ -52,13 +53,13 @@ def main():
    im_conv = conv(im_noise,k1)
    plt.imshow(im_conv, cmap=plt.cm.gray)
    im_conv = min_max_rescale(im_conv)
-   misc.imsave('im_conv.png',im_conv)
+   misc.imsave('im_conv_b.png',im_conv)
 
    # ex 8.2 c)
    k2=np.matrix([[0,0,0],[1,-2,1],[0,0,0]])
    im = readImage('clock.png')
    im2_conv = conv(im,k2)
    im2_conv = min_max_rescale(im2_conv)
-   misc.imsave('im_conv2.png',im2_conv)
+   misc.imsave('im_conv_a.png',im2_conv)
 if __name__=="__main__":
     main()
