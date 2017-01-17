@@ -117,18 +117,37 @@ The outcome increases the size by 1 every times we use convolution. Furthermore,
 \end{enumerate}
 
 
+\newpage
 \subsection{ }
 \begin{enumerate}[a)]
     \item 
         The function \verb!conv(image, kernel)! in \verb!convolution.py! implements said convolution.
 
     \item
+        Output see Figure \ref{fig:conv82b}\\
         This Kernel applies smoothing on the picture. It esentially averages the color of every pixel to the average gray-value of the pixel and all its ``neighbour-pixels''. This obviously makes edges appear much more smooth and also reduces noise in the picture.\\
         $\Rightarrow$ this effect is called box blur or normalized blur.
 
+        \begin{figure}
+          \centering
+            \includegraphics[scale = 1.00]{pictures/conv_b}
+          \caption{convolution from exercise 8.2 b)}
+          \label{fig:conv82b}
+        \end{figure}
+
     \item
+        Output see Figure \ref{fig:conv82c}\\
+        This Kernel applies vertical edge detection! It can be used to detect vertical edges in all kind of scenarios. Bright points in the resulting picture are detected vertical edges in the original picture which occur on dark points which are surrounded by brighter pixels on the right and/or left. Very dark points in the resulting picture occur when a bright pixel in the original picture is surrounded by 2 much darker pixels on the right and/or left.\\
 
+        \begin{figure}
+          \centering
+            \includegraphics[scale = 1.00]{pictures/conv_c}
+          \caption{convolution from exercise 8.2 c)}
+          \label{fig:conv82c}
+        \end{figure}
 
+    \item
+        because zero represents the darkest black possible it obviously creates very sharp edges for the outer most rows and columns in our padded picture, because the color difference between all pixels in these outer most columns and rows and their neighbours (pixels contained in the unpadded picture) can be very big. For our example picture a white instead of black padding would have been a lot better obviously. A better approach for the padded pixels would be if they contain the average color of their adjacent pixels. This would minimize this problem while still being very easy to compute.\\
 
 \end{enumerate}
 
