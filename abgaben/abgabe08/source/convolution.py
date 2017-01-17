@@ -7,7 +7,8 @@ def readImage(path):
     return misc.imread(path)
 
 
-def convfix(image,kernel):
+# convolution which also applies padding
+def conv(image,kernel):
 
    kernel_width = kernel.shape[0]
    kernel_height = kernel.shape[1]
@@ -38,7 +39,8 @@ def convfix(image,kernel):
 
 
 
-def conv(image, kernel):
+# convolution without padding
+def conv_old(image, kernel):
     # ex 8.2 a)
 
     kernel_width = kernel.shape[0]
@@ -84,7 +86,7 @@ def main():
    h = 1./9.
    k1=np.matrix([[h,h,h],[h,h,h],[h,h,h]])
    im_noise = readImage('clock_noise.png')
-   im_conv = convfix(im_noise,k1)
+   im_conv = conv(im_noise,k1)
    plt.imshow(im_conv, cmap=plt.cm.gray)
    im_conv = min_max_rescale(im_conv)
    plt.imshow(im_conv, cmap=plt.cm.gray)
@@ -94,7 +96,7 @@ def main():
    # ex 8.2 c)
    k2=np.matrix([[0.0,0.0,0.0],[1.0,-2.0,1.0],[0.0,0.0,0.0]])
    im2 = readImage('clock.png')
-   im2_conv = convfix(im2,k2)
+   im2_conv = conv(im2,k2)
    im2_conv = min_max_rescale(im2_conv)
    plt.imshow(im2_conv, cmap=plt.cm.gray)
    plt.show()
