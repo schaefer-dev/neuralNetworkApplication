@@ -121,6 +121,19 @@ The reason people usually use Transfer learning is because one rarely has a data
                 The fully-connected Layer will compute the class scores, resulting in volumes of 1x1x10 which each of the 10 numbers being a score for one of the 10 classes.
         \end{itemize}
 
+    \item
+
+
+    \item
+        without a non-linear activation function in the network, a NN, no matter how many layers it had, would behave just like a single-layer perceptron, because summing these layers would give you just another linear function.\\
+
+        \newpage
+        \includegraphics[scale = 0.35]{pictures/figure01}\\
+
+        You can clearly see in the notes that I wrote above that $\hat{y}$ stays a linear combination of the 3 Inputs. That means that there exists a linear activation-funktions and weights such that the network below produces exactly the same result:\\
+
+        \includegraphics[scale = 0.32]{pictures/figure02}\\
+
 \end{enumerate}
 
 
