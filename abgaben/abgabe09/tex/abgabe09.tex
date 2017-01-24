@@ -28,6 +28,7 @@
 \newcommand{\Ycal}{\mathcal{Y}}
 \newcommand{\Bcal}{\mathcal{B}}
 \newcommand{\Acal}{\mathcal{A}}
+\newcommand{\intinfty}{\int^{\infty}_{-\infty}}
 
 % formating
 \topmargin -1.5cm 
@@ -57,6 +58,30 @@
 
 % ex 9.2
 \subsection{ }
+
+\underline{proof analogue to wikipedia:}\\\\
+
+let $h$ be the convolution of $f$ and $f$:
+$$ h(z) = \int^\infty_{-\infty} f(x)g(z-x) dx$$
+$$\int \int \vert f(x)g(z-x) \vert dz dx = \int \vert f(x) \vert \int \vert g(z-x) \vert dz dx = \int \vert f(x) \vert \Vert g \Vert_1 dx = \Vert f \Vert_1 \Vert g \Vert_1$$
+
+Hence by Fubinis Theorem we have that $h \in L^1(\R^n)$ so its Furioer transform H is defined by the integral formula
+$$H(v) = \int^\infty_{-\infty} h(z)e^{-2 \pi i z v} dz$$
+$$ \int^\infty_{-\infty} \int^\infty_{-\infty} f(x) f(z-x) dx e^{-2 \pi i z v} dz$$
+
+$\vert f(x) g(z-x) e^{-2 \pi i z v} \vert = \vert f(x) g(z-x) \vert$ and we may apply Fubinis theorem again:
+
+$$ H(v) = \int^\infty_{-\infty} f(x) (\int^\infty_{-\infty} g(z-x)e^{-2 \pi i z v} dz) dx$$
+
+Now we substitute $y = z - x$ and $dy = dz$:
+$$ H(v) = \intinfty f(x) ( \intinfty g(y)e^{-2 \pi i (y + x) v}dy)dx$$
+$$ = \intinfty f(x) e ^{-2 \pi i x v} (\intinfty g(y) e ^{-2 x i y v}dy)dx$$
+$$ = \intinfty f(x) e ^{-2 \pi x i v} dx \intinfty g(y)e^{-2 x i y v} dy$$
+
+which are the definition of $F(v)$ and $G(v)$
+$$ \ Rightarrow \quad H(v) = F(v) * G(v) $$
+
+
 
 
 % ex 9.3
