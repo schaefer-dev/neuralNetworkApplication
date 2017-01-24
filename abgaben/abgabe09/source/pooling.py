@@ -13,8 +13,8 @@ def maxPool(data,split):
         h = 0
         for j in range(split):
             res[i,j] = data[w:w+step,h:h+step].max()
-            x = data[w:w+step,h:h+step].argmax()%step + w
-            y = data[w:w+step,h:h+step].argmax()/step + h
+            x = data[w:w+step,h:h+step].argmax()%step
+            y = data[w:w+step,h:h+step].argmax()/step
             print(x,y)
             h += step
         w+=step
@@ -36,9 +36,9 @@ def averagePool(data,split):
     return res
 
 im = readImage('clock.png')
-clock_max = maxPool(im,128)
-print(im,clock_max)
+clock_max = maxPool(im,8)
+print(clock_max)
 #misc.imsave('clockMax.png',clock_max)
 clock_mean = averagePool(im,128)
-print(im,clock_mean)
+#print(im,clock_mean)
 #misc.imsave('clockMean.png',clock_mean)
