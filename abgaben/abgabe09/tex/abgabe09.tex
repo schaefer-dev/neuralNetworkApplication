@@ -97,9 +97,31 @@ see code
 % ex 9.5
 \subsection{ }
 
+\textbf{Transfer Learning}:\\
+The reason people usually use Transfer learning is because one rarely has a dataset of sufficient size to train a CNN from scratch! In practice it is common to pretrain a CNN on a very large Datatset and use this either as initialization or a fixed feature extractor for the task of interest.
+
 
 % ex 9.5
 \subsection{ }
+\begin{enumerate}[a)]
+    \item 
+        A simple CNN for the CIFAR-10 classification task could look like this:
+        $$ \text{Input Layer} \Rightarrow \text{Convolution Layer} \Rightarrow \text{RELU Layer} \Rightarrow \text{Pooling Layer} \Rightarrow \text{FC Layer}$$
+
+        \begin{itemize}
+            \item 
+                The Input Layer will contain the R, G and B values of the 32 x 32 Image. 
+            \item
+                The Convolutional Layer will compute the output of neurons that are connected to local regions in the input, each computing the dot product between their weigts and a small region they are connected to in the input volume. This results for 32x43x8 if we decide to use 8 filters.
+            \item
+                The RELU Layer will apply an elementwise activation function, leaves the size of the colume unchanged
+            \item
+                The Pooling Layer will perform downsampling along the height and width resulting in for example a 16x16x8 volume
+            \item
+                The fully-connected Layer will compute the class scores, resulting in volumes of 1x1x10 which each of the 10 numbers being a score for one of the 10 classes.
+        \end{itemize}
+
+\end{enumerate}
 
 
 
