@@ -18,10 +18,11 @@ def Power(M):
 
         # print i-th iteration
         plt.scatter(i,end)
-        print("Itaration " + str(i) + " results in value: " + str(end))
+        print("Iteration " + str(i) + " results in value: " + repr(end))
 
         i += 1
     return (u)
+
 M = np.matrix([[-2,-2,3],[-10,-1,6],[10,-2,-9]])
 print("\nResulting Eigenvector:\n" + str(Power(M)))
 
