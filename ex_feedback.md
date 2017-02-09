@@ -10,7 +10,7 @@
 - -2 for 2.3b (missing) 
 - -0.5 for 2.4, Newton's method converges in one step, this should happen in your code, but since you have epsilon as 1, you only lose 0.5 a point
 
-# EX 3:
+# EX 3: this is a test this is a tes and its working like a charm
 - 3.1.c update rule for weights not provided (-2 points)
 - 3.1.g incomplete (-2)
 - 3.1.h,i (-4)
@@ -44,4 +44,6 @@
 - Bonus(-5 pts)
 
 # EX 11:
-
+- 11.1.a: Mistake in the final step, incorrect value of p(X) (-1 pt)
+- 11.1.b: No submission (-5 pts)
+- 11.1.c: Incorrect most likely sequence (-2 pts)
